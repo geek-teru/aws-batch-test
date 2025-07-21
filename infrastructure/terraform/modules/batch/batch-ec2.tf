@@ -29,7 +29,7 @@ resource "aws_batch_compute_environment" "batch_ec2" {
 }
 
 resource "aws_batch_job_queue" "queue_ec2" {
-  name     = "${var.env}-${var.sys_name}-batch-job-queue"
+  name     = "${var.env}-${var.sys_name}-batch-job-queue-ec2"
   state    = "ENABLED"
   priority = 1
 

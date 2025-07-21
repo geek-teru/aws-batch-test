@@ -18,7 +18,7 @@ resource "aws_batch_compute_environment" "batch_fargate" {
 }
 
 resource "aws_batch_job_queue" "queue_fargate" {
-  name     = "${var.env}-${var.sys_name}-batch-job-queue"
+  name     = "${var.env}-${var.sys_name}-batch-job-queue-fargate"
   state    = "ENABLED"
   priority = 1
 
