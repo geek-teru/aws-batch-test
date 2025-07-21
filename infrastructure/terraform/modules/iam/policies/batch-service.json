@@ -26,6 +26,14 @@
       "Resource": "*"
     },
     {
+      "Sid": "AllowAutoscalingAccess",
+      "Effect": "Allow",
+      "Action": [
+        "autoscaling:*"
+      ],
+      "Resource": "*"
+    },
+    {
       "Sid": "AllowCloudWatchLogs",
       "Effect": "Allow",
       "Action": [
