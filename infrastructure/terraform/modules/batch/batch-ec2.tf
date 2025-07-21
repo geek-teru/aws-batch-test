@@ -14,7 +14,6 @@ resource "aws_batch_compute_environment" "batch_ec2" {
     allocation_strategy = "BEST_FIT_PROGRESSIVE"
     min_vcpus           = 0   # 最小vCPU数
     max_vcpus           = 100 # 最大vCPU数
-    desired_vcpus       = 0   # 初期状態で起動するvCPU数
 
     instance_type = ["m5.large"]
     instance_role = aws_iam_instance_profile.batch_instance_profile.arn
