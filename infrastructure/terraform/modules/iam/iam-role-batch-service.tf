@@ -25,3 +25,8 @@ resource "aws_iam_role_policy_attachment" "batch_service_policy_attachment" {
   role       = aws_iam_role.batch_service_role.name
   policy_arn = aws_iam_policy.batch_service_policy.arn
 }
+
+# iam_service_linked_role
+resource "aws_iam_service_linked_role" "autoscaling" {
+  aws_service_name = "autoscaling.amazonaws.com"
+}
