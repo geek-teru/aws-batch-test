@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  hello-world-job:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hello-world-job
+    # Hello Worldを出力して終了するため、restart: "no"を設定
+    restart: "no"

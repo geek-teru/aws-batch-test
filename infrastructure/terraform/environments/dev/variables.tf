@@ -1,0 +1,36 @@
+variable "env" {
+  type    = string
+  default = "dev"
+}
+
+variable "sys_name" {
+  type    = string
+  default = "aws-batch"
+}
+
+variable "service_name" {
+  type    = string
+  default = "hello-world"
+}
+
+data "aws_caller_identity" "current" {}
+
+data "terraform_remote_state" "cmn_vpc" {
+  backend = "s3"
+
+  config = {
+    bucket = "dev-terraform-aws"
+    key    = "cmn-vpc/terraform.tfstate"
+    region = "ap-northeast-1"
+  }
+}
+
+data "terraform_remote_state" "log_ops" {
+  backend = "s3"
+
+  config = {
+    bucket = "dev-terraform-aws"
+    key    = "aws-log-ops/terraform.tfstate"
+    region = "ap-northeast-1"
+  }
+}
