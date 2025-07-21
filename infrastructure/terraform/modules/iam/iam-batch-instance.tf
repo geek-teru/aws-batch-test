@@ -1,3 +1,9 @@
+# iam_policy
+resource "aws_iam_policy" "batch_instance_policy" {
+  name   = "${var.env}-${var.sys_name}-instance-policy"
+  policy = file("${path.module}/policies/batch-instance.json")
+}
+
 # iam_role
 resource "aws_iam_role" "batch_instance_role" {
   name = "${var.env}-${var.sys_name}-${var.service_name}-instance-role"
@@ -13,4 +19,9 @@ resource "aws_iam_role" "batch_instance_role" {
       }
     ]
   })
+}
+
+resource "aws_iam_role_policy_attachment" "batch_instance_policy_attachment" {
+  role       = aws_iam_role.batch_instance_role.name
+  policy_arn = aws_iam_policy.batch_instance_policy.arn
 }
