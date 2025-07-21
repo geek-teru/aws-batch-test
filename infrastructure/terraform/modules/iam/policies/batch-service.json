@@ -67,7 +67,8 @@
                 "logs:PutLogEvents",
                 "logs:DescribeLogGroups",
                 "iam:GetInstanceProfile",
-                "iam:GetRole"
+                "iam:GetRole",
+                "ecr:*"
             ],
             "Resource": "*"
         },
