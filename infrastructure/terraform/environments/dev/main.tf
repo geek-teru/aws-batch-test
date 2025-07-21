@@ -37,4 +37,8 @@ module "batch" {
   subnet_ids         = data.terraform_remote_state.cmn_vpc.outputs.vpc.cmn_vpc_priv_subnet_ids
   security_group_ids = [module.security_groups.batch_sg_id]
 
+  depends_on = [
+    module.iam,
+    module.security_groups
+  ]
 }
